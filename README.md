@@ -2,18 +2,19 @@
 =============
 
 
-Sample Android application using Deezer API / Android SDK
+Sample Android application(s) using Deezer API / Android SDK
 
+### Basic Sample
 
-### Deezer Android SDK
+This sample illustrate a simple yet complete use of the SDK. The user can authenticate himself using OAuth, then explore his library and play from his Favorite playlists, albums or radios. 
 
-1. download the current version of [Deezer Android SDK][1]
-2. place the sdk jar in the project's libs folder
-3. place the native library files in libs/<architecture> folders
+### Other
 
-### Documentation
+Other samples will be posted on this repository in the future. 
 
-To learn how to use the SDK, visit the [Deezer Android SDK Documentation][1]
+### About Deezer SDK for Android
+
+To download the latest version of Deezer SDK for Android, and learn how to use it, visit the [Android SDK][1] page. 
 
 
  [1]: http://developers.deezer.com/sdk/android

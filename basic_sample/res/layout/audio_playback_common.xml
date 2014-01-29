@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/player_background"
+	android:orientation="vertical"
+	tools:ignore="ContentDescription" >
+
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="1dip"
+		android:layout_marginBottom="1dip"
+		android:background="#ffffffff" />
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:orientation="horizontal"
+		android:paddingTop="4dip" >
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1" />
+
+		<ImageButton
+			android:id="@+id/button_skip_backward"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_previous" />
+
+		<ImageButton 
+			android:id="@+id/button_seek_backward"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_rewind" />
+
+		<ImageButton
+			android:id="@+id/button_stop"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_stop" />
+
+		<ImageButton
+			android:id="@+id/button_pause"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_play" />
+
+		<ImageButton
+			android:id="@+id/button_seek_forward"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_fast_forward" />
+
+		<ImageButton
+			android:id="@+id/button_skip_forward"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_next" />
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1" />
+
+		<ImageButton
+			android:id="@+id/button_repeat"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:src="@drawable/ic_action_repeat" />
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1" />
+
+		<!-- <Button -->
+		<!-- android:id="@+id/button_goto" -->
+		<!-- android:layout_width="wrap_content" -->
+		<!-- android:layout_height="wrap_content" -->
+		<!-- android:background="@android:color/transparent" -->
+		<!-- android:text="#64" -->
+		<!-- android:textColor="@android:color/white" -->
+		<!-- android:textSize="22sp" /> -->
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingBottom="4dip"
+		android:paddingTop="1dip" >
+
+		<TextView
+			android:id="@+id/text_time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="0"
+			android:paddingLeft="5dip"
+			android:shadowColor="#ff000000"
+			android:text="@string/default_duration"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+
+		<SeekBar
+			android:id="@+id/seek_progress"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="1"
+			android:max="100"
+			android:paddingBottom="4dip"
+			android:paddingLeft="16dip"
+			android:paddingRight="16dip" />
+
+		<TextView
+			android:id="@+id/text_length"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="0"
+			android:gravity="right"
+			android:paddingRight="5dip"
+			android:shadowColor="#ff000000"
+			android:text="@string/default_duration"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingBottom="4dip"
+		android:paddingTop="1dip" >
+
+		<TextView
+			android:id="@+id/text_artist"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="0"
+			android:ellipsize="marquee"
+			android:gravity="left"
+			android:shadowColor="#ff000000"
+			android:text="@string/empty"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textStyle="bold|italic" />
+
+		<TextView
+			android:id="@+id/text_track"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="0"
+			android:ellipsize="marquee"
+			android:gravity="left"
+			android:shadowColor="#ff000000"
+			android:singleLine="true"
+			android:text="@string/empty"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:textStyle="italic" />
+	</LinearLayout>
+
+</LinearLayout>

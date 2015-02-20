@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="user_data">
+		<item>Playlists</item>
+		<item>Albums</item>
+		<item>Artists</item>
+		<item>Radios</item>
+		<item>Tracks</item>
+		<item>Flow</item>
+		<item>Custom</item>
+	</string-array>
+
+</resources>

@@ -1,20 +1,8 @@
-# built application files
-*.apk
-*.ap_
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
 
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# generated files
-bin/
-gen/
-
-# Local configuration file (sdk path, etc)
-local.properties
-.gitattributes
-
-# Eclipse project files
-.metadata
+deezer-sdk/deezer-sdk-0.10.17.aar

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:com.deezer.sdk.tools="http://schemas.android.com/com.deezer.sdk.tools"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	com.deezer.sdk.tools:ignore="ContentDescription" >
+
+	<RelativeLayout
+		android:id="@+id/panel_user"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/header_background"
+		android:orientation="vertical"
+		android:padding="10dp" >
+
+		<ImageView
+			android:id="@+id/user_picture"
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"
+			android:background="@color/image_edges"
+			android:padding="1dip"
+			android:src="@drawable/default_user_cover" />
+
+		<TextView
+			android:id="@+id/name"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_toRightOf="@id/user_picture"
+			android:paddingLeft="3dp"
+			android:paddingRight="3dp"
+			android:paddingTop="3dp"
+			android:text="@string/empty"
+			android:textColor="@color/text_main"
+			android:textSize="18sp" />
+
+		<TextView
+			android:id="@+id/first_name"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/name"
+			android:layout_toRightOf="@id/user_picture"
+			android:paddingBottom="3dp"
+			android:paddingLeft="3dp"
+			android:paddingRight="3dp"
+			android:text="@string/empty"
+			android:textColor="@color/text_main"
+			android:textSize="18sp" />
+
+		<TextView
+			android:id="@+id/bithday"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/first_name"
+			android:layout_toRightOf="@id/user_picture"
+			android:padding="3dp"
+			android:text="@string/empty"
+			android:textColor="@color/text_second" />
+	</RelativeLayout>
+
+	<ListView
+		android:id="@android:id/list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_below="@id/panel_user" />
+
+</RelativeLayout>

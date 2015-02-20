@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<include
+		android:id="@+id/player"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		layout="@layout/audio_playback_common" />
+
+	<com.deezer.sdk.sample.ui.FFTView
+		android:id="@+id/fftView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/player"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_margin="8dp"
+		android:visibility="gone" />
+
+	<com.deezer.sdk.sample.ui.WaveformView
+		android:id="@+id/wfView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/player"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_margin="8dp"
+		android:visibility="gone" />
+
+</RelativeLayout>

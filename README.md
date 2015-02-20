@@ -1,20 +1,31 @@
 ![Deezer](http://cdn-files.deezer.com/img/press/new_logo_white.jpg "Deezer") 
-=============
 
+# Deezer SDK Android Sample
 
-Sample Android application(s) using Deezer API / Android SDK
+A sample Android application using Deezer API / Android SDK
 
-### Basic Sample
+## Basic Sample
 
-This sample illustrate a simple yet complete use of the SDK. The user can authenticate himself using OAuth, then explore his library and play from his Favorite playlists, albums or radios. 
+This sample illustrate a simple yet complete use of the SDK :
 
-### Other
+ - the user can authenticate himself using OAuth
+ - he can explore his library and play from his Favorite playlists, albums or radios, or play his Flow radio.
 
-Other samples will be posted on this repository in the future. 
+## Features
 
-### About Deezer SDK for Android
+ - Authenticating a User
+ - Accessing a user's information (Name, Photo)
+ - Accessing a user's library (favorite playlists, albums, artists, radios, loved tracks)
+ - Playing music from any source (playlist, album, radio, track)
+ - Playing Radio without any logged user
+ - Sending a notification to the user
+ - Generating visualisation from the FFT or Waveform of the track being played
+ - Implementing an equalizer to improve the sound of the track being played
 
-To download the latest version of Deezer SDK for Android, and learn how to use it, visit the [Android SDK][1] page. 
+## Build instructions
+
+To run this sample, you need to download the latest version of [Deezer SDK for Android][1] and copy
+the aar in the deezer-sdk folder.
 
 
  [1]: http://developers.deezer.com/sdk/android

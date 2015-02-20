@@ -1,0 +1,99 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.deezer.sdk.sample">
+
+
+    <!-- Obviously needed to download tracks and send request to the API -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Needed to know if network is available before trying to download a track -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Enable the device to keep the screen on when music is playing -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Enable using the Visualizer -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/DeezerDemoTheme">
+
+        <!-- Main activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- User Home activity -->
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- User's playlists activity -->
+        <activity
+            android:name=".UserPlaylistsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- User's albums activity -->
+        <activity
+            android:name=".UserAlbumsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- User's artists activity -->
+        <activity
+            android:name=".UserArtistsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- User's radios activity -->
+        <activity
+            android:name=".UserTopTracksActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- User's radios activity -->
+        <activity
+            android:name=".UserRadiosActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- Radios activity -->
+        <activity
+            android:name=".RadiosActivity"
+            android:label="@string/activity_radio"
+            android:screenOrientation="portrait"/>
+
+        <!-- Visualizers activity -->
+        <activity
+            android:name=".VisualizerActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- Equalizer activity -->
+        <activity
+            android:name=".EqualizerActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- User flow activity -->
+        <activity
+            android:name=".UserFlowActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- Custom tracklist activity -->
+        <activity
+            android:name=".UserCustomTrackListActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

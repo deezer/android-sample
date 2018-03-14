@@ -9,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.deezer.sdk.network.request.event.DeezerError;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.RadioPlayer;
 import com.deezer.sdk.player.RadioPlayer.RadioType;
 import com.deezer.sdk.player.event.RadioPlayerListener;
@@ -122,8 +122,6 @@ public class VisualizerActivity extends PlayerActivity
                     new WifiAndMobileNetworkStateChecker());
             mRadioPlayer.addPlayerListener(this);
             setAttachedPlayer(mRadioPlayer);
-        } catch (OAuthException e) {
-            handleError(e);
         } catch (DeezerError e) {
             handleError(e);
         } catch (TooManyPlayersExceptions e) {
@@ -136,10 +134,15 @@ public class VisualizerActivity extends PlayerActivity
     // Radio Player Callbacks
     //////////////////////////////////////////////////////////////////////////////////////
 
+    @Override
+    public void onAllTracksEnded() {
+        stopVisualizer();
+    }
 
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        if(playableEntity.getType()=="track")
+            displayTrack((Track)playableEntity);
 
         stopVisualizer();
 
@@ -176,12 +179,7 @@ public class VisualizerActivity extends PlayerActivity
     }
 
     @Override
-    public void onTrackEnded(final Track track) {
-        stopVisualizer();
-    }
-
-    @Override
-    public void onAllTracksEnded() {
+    public void onTrackEnded(PlayableEntity playableEntity) {
         stopVisualizer();
     }
 

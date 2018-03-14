@@ -9,10 +9,10 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.deezer.sdk.network.request.event.DeezerError;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.RadioPlayer;
 import com.deezer.sdk.player.RadioPlayer.RadioType;
 import com.deezer.sdk.player.event.RadioPlayerListener;
@@ -107,9 +107,6 @@ public class EqualizerActivity extends PlayerActivity
             mRadioPlayer.addPlayerListener(this);
             setAttachedPlayer(mRadioPlayer);
         }
-        catch (OAuthException e) {
-            handleError(e);
-        }
         catch (DeezerError e) {
             handleError(e);
         }
@@ -152,26 +149,30 @@ public class EqualizerActivity extends PlayerActivity
     //////////////////////////////////////////////////////////////////////////////////////
     // Radio Player Callbacks
     //////////////////////////////////////////////////////////////////////////////////////
-    
-    
+
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
-        
+    public void onAllTracksEnded() {
+    }
+
+    @Override
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        if(playableEntity.getType()=="track")
+            displayTrack((Track)playableEntity);
+
         mEqualizer = new Equalizer(0, mRadioPlayer.getAudioSessionId());
         mEqualizer.setEnabled(true);
-        
+
         int numBands = mEqualizer.getNumberOfBands();
         Log.i("Equalizer", "Number of bands : " + numBands);
-        
+
         mRange = mEqualizer.getBandLevelRange();
         Log.i("Equalizer", "Level range : " + Arrays.toString(mRange) + " milliBels");
-        
+
         for (int i = 0; i < mSeekBars.length; ++i) {
-            
+
             if (i < numBands) {
                 mSeekBars[i].setVisibility(View.VISIBLE);
-                
+
                 int percent = ((mEqualizer.getBandLevel((short) i) - mRange[0]) * MAX_SEEK)
                         / (mRange[1] - mRange[0]);
                 mSeekBars[i].setOnSeekBarChangeListener(null);
@@ -182,19 +183,16 @@ public class EqualizerActivity extends PlayerActivity
                 mSeekBars[i].setVisibility(View.GONE);
                 mSeekBars[i].setOnSeekBarChangeListener(null);
             }
-            
+
         }
-        
     }
+
     @Override
-    public void onTrackEnded(final Track track) {
+    public void onTrackEnded(PlayableEntity playableEntity) {
+
     }
-    
-    @Override
-    public void onAllTracksEnded() {
-    }
-    
-    
+
+
     @Override
     public void onRequestException(final Exception e, final Object requestId) {
         handleError(e);

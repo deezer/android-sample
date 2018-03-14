@@ -6,6 +6,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.player.PlayerWrapper;
 import com.deezer.sdk.player.PlayerWrapper.RepeatMode;

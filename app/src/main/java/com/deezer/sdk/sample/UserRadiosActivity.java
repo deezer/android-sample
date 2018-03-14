@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Radio;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
@@ -24,7 +25,6 @@ import com.deezer.sdk.network.request.DeezerRequest;
 import com.deezer.sdk.network.request.DeezerRequestFactory;
 import com.deezer.sdk.network.request.event.DeezerError;
 import com.deezer.sdk.network.request.event.JsonRequestListener;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.RadioPlayer;
 import com.deezer.sdk.player.event.RadioPlayerListener;
 import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
@@ -80,9 +80,6 @@ public class UserRadiosActivity extends PlayerActivity implements RadioPlayerLis
                     new WifiAndMobileNetworkStateChecker());
             mRadioPlayer.addPlayerListener(this);
             setAttachedPlayer(mRadioPlayer);
-        }
-        catch (OAuthException e) {
-            handleError(e);
         }
         catch (DeezerError e) {
             handleError(e);
@@ -204,21 +201,22 @@ public class UserRadiosActivity extends PlayerActivity implements RadioPlayerLis
     //////////////////////////////////////////////////////////////////////////////////////
     // Radio Player Callbacks
     //////////////////////////////////////////////////////////////////////////////////////
-    
-    
-    @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
-    }
-    
-    @Override
-    public void onTrackEnded(final Track track) {
-    }
-    
+
     @Override
     public void onAllTracksEnded() {
     }
-    
+
+    @Override
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        if(playableEntity.getType()=="track")
+            displayTrack((Track)playableEntity);
+    }
+
+    @Override
+    public void onTrackEnded(PlayableEntity playableEntity) {
+
+    }
+
     @Override
     public void onRequestException(final Exception e, final Object requestId) {
         handleError(e);

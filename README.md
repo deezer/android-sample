@@ -6,7 +6,7 @@ A sample Android application using Deezer API / Android SDK
 
 ## Basic Sample
 
-This sample illustrate a simple yet complete use of the SDK :
+This sample illustrates a simple yet complete use of the SDK :
 
  - the user can authenticate himself using OAuth
  - he can explore his library and play from his Favorite playlists, albums or radios, or play his Flow radio.

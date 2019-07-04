@@ -18,13 +18,13 @@ import android.widget.Toast;
 
 import com.deezer.sdk.model.AImageOwner.ImageSize;
 import com.deezer.sdk.model.Album;
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.deezer.sdk.network.request.DeezerRequest;
 import com.deezer.sdk.network.request.DeezerRequestFactory;
 import com.deezer.sdk.network.request.event.DeezerError;
 import com.deezer.sdk.network.request.event.JsonRequestListener;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.AlbumPlayer;
 import com.deezer.sdk.player.event.PlayerWrapperListener;
 import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
@@ -119,9 +119,6 @@ public class UserAlbumsActivity extends PlayerActivity implements PlayerWrapperL
             mAlbumPlayer.addPlayerListener(this);
             setAttachedPlayer(mAlbumPlayer);
         }
-        catch (OAuthException e) {
-            handleError(e);
-        }
         catch (TooManyPlayersExceptions e) {
             handleError(e);
         }
@@ -190,12 +187,12 @@ public class UserAlbumsActivity extends PlayerActivity implements PlayerWrapperL
     //////////////////////////////////////////////////////////////////////////////////////
     
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        displayTrack((Track) playableEntity);
     }
     
     @Override
-    public void onTrackEnded(final Track track) {
+    public void onTrackEnded(PlayableEntity playableEntity) {
     }
     
     @Override

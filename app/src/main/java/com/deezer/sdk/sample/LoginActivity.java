@@ -27,7 +27,8 @@ public class LoginActivity extends BaseActivity {
      * cf : http://developers.deezer.com/api/permissions
      */
     protected static final String[] PERMISSIONS = new String[]{
-            Permissions.BASIC_ACCESS, Permissions.OFFLINE_ACCESS
+            Permissions.BASIC_ACCESS,
+            Permissions.OFFLINE_ACCESS
     };
 
 

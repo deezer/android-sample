@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.deezer.sdk.network.request.AsyncDeezerTask;
@@ -22,7 +23,6 @@ import com.deezer.sdk.network.request.DeezerRequest;
 import com.deezer.sdk.network.request.DeezerRequestFactory;
 import com.deezer.sdk.network.request.event.DeezerError;
 import com.deezer.sdk.network.request.event.JsonRequestListener;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.TrackPlayer;
 import com.deezer.sdk.player.event.PlayerWrapperListener;
 import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
@@ -124,9 +124,6 @@ public class UserTopTracksActivity extends PlayerActivity implements PlayerWrapp
             mTrackPlayer.addPlayerListener(this);
             setAttachedPlayer(mTrackPlayer);
         }
-        catch (OAuthException e) {
-            handleError(e);
-        }
         catch (TooManyPlayersExceptions e) {
             handleError(e);
         }
@@ -186,12 +183,12 @@ public class UserTopTracksActivity extends PlayerActivity implements PlayerWrapp
     //////////////////////////////////////////////////////////////////////////////////////
     
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        displayTrack((Track) playableEntity);
     }
     
     @Override
-    public void onTrackEnded(final Track track) {
+    public void onTrackEnded(PlayableEntity playableEntity) {
     }
     
     @Override

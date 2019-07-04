@@ -5,10 +5,10 @@ import java.util.List;
 
 import android.os.Bundle;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.SessionStore;
 import com.deezer.sdk.network.request.event.DeezerError;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.CustomTrackListPlayer;
 import com.deezer.sdk.player.event.PlayerWrapperListener;
 import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
@@ -73,9 +73,6 @@ public class UserCustomTrackListActivity extends PlayerActivity implements Playe
             mCustomPlayer.addPlayerListener(this);
             setAttachedPlayer(mCustomPlayer);
         }
-        catch (OAuthException e) {
-            handleError(e);
-        }
         catch (TooManyPlayersExceptions e) {
             handleError(e);
         }
@@ -108,12 +105,12 @@ public class UserCustomTrackListActivity extends PlayerActivity implements Playe
     //////////////////////////////////////////////////////////////////////////////////////
     
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        displayTrack((Track) playableEntity);
     }
     
     @Override
-    public void onTrackEnded(final Track track) {
+    public void onTrackEnded(PlayableEntity playableEntity) {
     }
     
     @Override

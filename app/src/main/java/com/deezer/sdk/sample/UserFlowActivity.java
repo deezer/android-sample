@@ -3,6 +3,7 @@ package com.deezer.sdk.sample;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.model.User;
 import com.deezer.sdk.network.connect.SessionStore;
@@ -11,7 +12,6 @@ import com.deezer.sdk.network.request.DeezerRequest;
 import com.deezer.sdk.network.request.DeezerRequestFactory;
 import com.deezer.sdk.network.request.event.DeezerError;
 import com.deezer.sdk.network.request.event.JsonRequestListener;
-import com.deezer.sdk.network.request.event.OAuthException;
 import com.deezer.sdk.player.RadioPlayer;
 import com.deezer.sdk.player.RadioPlayer.RadioType;
 import com.deezer.sdk.player.event.RadioPlayerListener;
@@ -84,9 +84,6 @@ public class UserFlowActivity extends PlayerActivity implements RadioPlayerListe
             mRadioPlayer.addPlayerListener(this);
             setAttachedPlayer(mRadioPlayer);
         }
-        catch (OAuthException e) {
-            handleError(e);
-        }
         catch (DeezerError e) {
             handleError(e);
         }
@@ -122,12 +119,12 @@ public class UserFlowActivity extends PlayerActivity implements RadioPlayerListe
     //////////////////////////////////////////////////////////////////////////////////////
     
     @Override
-    public void onPlayTrack(final Track track) {
-        displayTrack(track);
+    public void onPlayTrack(PlayableEntity playableEntity) {
+        displayTrack((Track) playableEntity);
     }
     
     @Override
-    public void onTrackEnded(final Track track) {
+    public void onTrackEnded(PlayableEntity playableEntity) {
     }
     
     @Override

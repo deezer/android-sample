@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 29
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.deezer.sdk.sample"
 
-        minSdkVersion 8
-        targetSdkVersion 21
+        minSdkVersion 14
+        targetSdkVersion 29
 
         versionCode 1
         versionName "1.0"
@@ -28,6 +28,6 @@ android {
 }
 
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.4.0'
-    compile project(':deezer-sdk')
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+    implementation project(':deezer-sdk')
 }
